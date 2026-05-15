@@ -27,7 +27,7 @@ export function TakumiSplash({ onUnlock }: Props) {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 flex flex-col items-center gap-6 px-8 text-center max-w-lg">
+        <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center w-full max-w-3xl">
           {/* Project label */}
           <p
             className="font-mono text-[10px] uppercase tracking-[0.3em]"
@@ -48,8 +48,9 @@ export function TakumiSplash({ onUnlock }: Props) {
             className="font-calligraphy leading-none tracking-wide"
             style={{
               color: "var(--takumi-ink)",
-              fontSize: "clamp(3rem, 10vw, 5.5rem)",
+              fontSize: "clamp(2.6rem, 8vw, 5rem)",
               textShadow: "0 2px 24px rgba(201,168,76,0.18)",
+              whiteSpace: "nowrap",
             }}
           >
             《石垣與破風》

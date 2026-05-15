@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import type { CastleContent, CastleKey } from "@/data/takumi-content";
+import { useI18n } from "@/lib/i18n";
 import ReactMarkdown from "react-markdown";
 
 type Props = {
@@ -12,6 +13,14 @@ type Props = {
 
 export function CastlePanel({ castles, selectedCastle, onClose }: Props) {
   const castle = castles.find((c) => c.id === selectedCastle) ?? null;
+  const { lang, t } = useI18n();
+
+  // Pick the right markdown based on active language
+  function getMarkdown(c: CastleContent): string {
+    if (lang === "zh") return c.markdownZH;
+    if (lang === "en") return c.markdownEN;
+    return c.markdown; // Japanese
+  }
 
   return (
     <AnimatePresence>
@@ -63,7 +72,7 @@ export function CastlePanel({ castles, selectedCastle, onClose }: Props) {
                       className="font-serif text-2xl sm:text-3xl"
                       style={{ color: "var(--takumi-ink)" }}
                     >
-                      {castle.nameJP}
+                      {lang === "en" ? castle.nameEN : lang === "zh" ? castle.nameCH : castle.nameJP}
                     </h2>
                     {/* Designation badge */}
                     <span
@@ -80,7 +89,7 @@ export function CastlePanel({ castles, selectedCastle, onClose }: Props) {
                             }
                       }
                     >
-                      {castle.designation === "kokuhо̄" ? "★ 國寶" : "重要文化財"}
+                      {castle.designation === "kokuhо̄" ? t.kokuhoBadge : t.jubunkaBadge}
                     </span>
                   </div>
                   <p
@@ -101,17 +110,17 @@ export function CastlePanel({ castles, selectedCastle, onClose }: Props) {
                     color: "var(--takumi-muted)",
                   }}
                 >
-                  ✕ 閉じる
+                  {t.closeBtn}
                 </button>
               </div>
 
               {/* Meta chips */}
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
-                  { label: "藩主", value: castle.clanCH },
-                  { label: "所在", value: castle.prefectureCH },
-                  { label: "竣工", value: castle.year + "年" },
-                  { label: "層數", value: `${castle.tiers}層` },
+                  { label: t.chipClan, value: castle.clanCH },
+                  { label: t.chipPrefecture, value: castle.prefectureCH },
+                  { label: t.chipYear, value: lang === "en" ? castle.year : castle.year + "年" },
+                  { label: t.chipTiers, value: `${castle.tiers}${lang === "en" ? " tiers" : "層"}` },
                 ].map(({ label, value }) => (
                   <div
                     key={label}
@@ -150,7 +159,7 @@ export function CastlePanel({ castles, selectedCastle, onClose }: Props) {
                     ),
                   }}
                 >
-                  {castle.markdown}
+                  {getMarkdown(castle)}
                 </ReactMarkdown>
               </div>
             </div>

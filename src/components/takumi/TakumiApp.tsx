@@ -87,7 +87,7 @@ function TakumiInner() {
                 {t.projectLabel}
               </p>
               {/* Calligraphy font in header h1 */}
-              <h1 className="font-calligraphy leading-none" style={{ color: "var(--takumi-ink)", fontSize: "clamp(1.1rem, 3vw, 1.5rem)" }}>
+              <h1 className="font-calligraphy leading-none" style={{ color: "var(--takumi-ink)", fontSize: "clamp(1.1rem, 3vw, 1.5rem)", whiteSpace: "nowrap" }}>
                 《石垣與破風》
               </h1>
             </div>
