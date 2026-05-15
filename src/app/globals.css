@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* TAKUMI palette — Deep Black + Antique Gold */
+  --takumi-void: #0a0a0b;          /* page background */
+  --takumi-stone: #1c1c1e;         /* card surface */
+  --takumi-iron: #28282b;          /* elevated card */
+  --takumi-ink: #f2ede4;           /* primary text (off-white) */
+  --takumi-muted: #8a8075;         /* secondary text */
+  --takumi-gold: #c9a84c;          /* primary gold accent */
+  --takumi-gold-light: #e8c87a;    /* hover / highlight gold */
+  --takumi-gold-dim: #7a6530;      /* dim gold */
+  --takumi-border: #333336;        /* border */
+  --takumi-red: #8b1a1a;           /* crimson accent */
+
+  --background: var(--takumi-void);
+  --foreground: var(--takumi-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-jb-mono), "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", "Times New Roman", serif;
+  --font-mono: var(--font-jb-mono), "JetBrains Mono", "Fira Code", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* ─── Stone card (equivalent of .paper-layer) ─────────────────────────────── */
+.stone-layer {
+  background: var(--takumi-stone);
+  border: 1px solid var(--takumi-border);
+  padding: 1.5rem;
+}
+
+/* ─── Gold divider ─────────────────────────────────────────────────────────── */
+.gold-divider {
+  height: 1px;
+  background: var(--takumi-gold);
+  opacity: 0.3;
+}
+
+/* ─── Iron grain overlay (texture) ─────────────────────────────────────────── */
+.iron-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 320px 320px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
