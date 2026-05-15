@@ -43,10 +43,14 @@ export function TakumiSplash({ onUnlock }: Props) {
             aria-hidden="true"
           />
 
-          {/* Main title */}
+          {/* Main title — 草書體 calligraphy for 蒼茫感 */}
           <h1
-            className="font-serif text-4xl sm:text-5xl leading-tight"
-            style={{ color: "var(--takumi-ink)" }}
+            className="font-calligraphy leading-none tracking-wide"
+            style={{
+              color: "var(--takumi-ink)",
+              fontSize: "clamp(3rem, 10vw, 5.5rem)",
+              textShadow: "0 2px 24px rgba(201,168,76,0.18)",
+            }}
           >
             《石垣與破風》
           </h1>

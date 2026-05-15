@@ -23,6 +23,8 @@
   --font-sans: var(--font-jb-mono), "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", "Times New Roman", serif;
   --font-mono: var(--font-jb-mono), "JetBrains Mono", "Fira Code", monospace;
+  /* 草書體 calligraphy — hero title */
+  --font-calligraphy: var(--font-long-cang), "Regular Script", "Kaiti TC", "楷書", cursive;
 }
 
 body {
@@ -42,6 +44,17 @@ html {
 
 .font-serif {
   font-family: var(--font-serif);
+}
+
+/* ─── Calligraphy hero font ────────────────────────────────────────────────── */
+.font-calligraphy {
+  font-family: var(--font-calligraphy);
+}
+
+/* ─── Castle name emphasis ─────────────────────────────────────────────────── */
+.castle-name-highlight {
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 /* ─── Stone card (equivalent of .paper-layer) ─────────────────────────────── */

@@ -16,8 +16,11 @@ export type CastleKey =
 
 export type Designation = "kokuhо̄" | "jūbunka";
 
+export type CastleRegion = "tohoku" | "chubu" | "kansai" | "chugoku" | "shikoku";
+
 export type CastleContent = {
   id: CastleKey;
+  region: CastleRegion;
   nameJP: string;
   nameCH: string;
   nameEN: string;
@@ -68,6 +71,7 @@ export type ReferenceItem = {
 export const castles: CastleContent[] = [
   {
     id: "hirosaki",
+    region: "tohoku",
     nameJP: "弘前城",
     nameCH: "弘前城",
     nameEN: "Hirosaki Castle",
@@ -82,6 +86,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "matsumoto",
+    region: "chubu",
     nameJP: "松本城",
     nameCH: "松本城",
     nameEN: "Matsumoto Castle",
@@ -96,6 +101,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "maruoka",
+    region: "chubu",
     nameJP: "丸岡城",
     nameCH: "丸岡城",
     nameEN: "Maruoka Castle",
@@ -110,6 +116,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "inuyama",
+    region: "chubu",
     nameJP: "犬山城",
     nameCH: "犬山城",
     nameEN: "Inuyama Castle",
@@ -124,6 +131,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "hikone",
+    region: "kansai",
     nameJP: "彦根城",
     nameCH: "彦根城",
     nameEN: "Hikone Castle",
@@ -138,6 +146,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "himeji",
+    region: "kansai",
     nameJP: "姫路城",
     nameCH: "姬路城",
     nameEN: "Himeji Castle",
@@ -152,6 +161,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "matsue",
+    region: "chugoku",
     nameJP: "松江城",
     nameCH: "松江城",
     nameEN: "Matsue Castle",
@@ -166,6 +176,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "bicchu",
+    region: "chugoku",
     nameJP: "備中松山城",
     nameCH: "備中松山城",
     nameEN: "Bicchū-Matsuyama Castle",
@@ -180,6 +191,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "marugame",
+    region: "shikoku",
     nameJP: "丸亀城",
     nameCH: "丸亀城",
     nameEN: "Marugame Castle",
@@ -194,6 +206,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "iyo",
+    region: "shikoku",
     nameJP: "伊予松山城",
     nameCH: "伊予松山城",
     nameEN: "Iyo-Matsuyama Castle",
@@ -208,6 +221,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "uwajima",
+    region: "shikoku",
     nameJP: "宇和島城",
     nameCH: "宇和島城",
     nameEN: "Uwajima Castle",
@@ -222,6 +236,7 @@ export const castles: CastleContent[] = [
   },
   {
     id: "kochi",
+    region: "shikoku",
     nameJP: "高知城",
     nameCH: "高知城",
     nameEN: "Kōchi Castle",
